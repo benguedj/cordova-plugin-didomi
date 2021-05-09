@@ -6,19 +6,19 @@
     </js-module>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
-            <feature name="Didomi">
-                <param name="ios-package" value="Didomi" />
+            <feature name="CDVDidomi">
+                <param name="ios-package" value="CDVDidomi" />
             </feature>
         </config-file>
-        <source-file src="src/ios/Didomi.m" />
+        <source-file src="src/ios/CDVDidomi.m" />
     </platform>
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
-            <feature name="Didomi">
-                <param name="android-package" value="cordova-plugin-didomi.Didomi" />
+            <feature name="CDVDidomi">
+                <param name="android-package" value="cordova-plugin-didomi.CDVDidomi" />
             </feature>
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
-        <source-file src="src/android/Didomi.java" target-dir="src/cordova-plugin-didomi/Didomi" />
+        <source-file src="src/android/CDVDidomi.java" target-dir="src/cordova-plugin-didomi/Didomi" />
     </platform>
 </plugin>
