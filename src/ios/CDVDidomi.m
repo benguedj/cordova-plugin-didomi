@@ -3,14 +3,14 @@
 #import <Cordova/CDV.h>
 #import <Didomi/Didomi.h>
 
-@interface Didomi : CDVPlugin {
+@interface CDVDidomi : CDVPlugin {
   // Member variables go here.
 }
 
 - (void)shareConsent:(CDVInvokedUrlCommand*)command;
 @end
 
-@implementation Didomi
+@implementation CDVDidomi
 
 - (void)shareConsent:(CDVInvokedUrlCommand*)command
 {
