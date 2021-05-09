@@ -1,23 +1,26 @@
 /********* Didomi.m Cordova Plugin Implementation *******/
 
 #import <Cordova/CDV.h>
+#import <Didomi/Didomi.h>
 
 @interface Didomi : CDVPlugin {
   // Member variables go here.
 }
 
-- (void)coolMethod:(CDVInvokedUrlCommand*)command;
+- (void)shareConsent:(CDVInvokedUrlCommand*)command;
 @end
 
 @implementation Didomi
 
-- (void)coolMethod:(CDVInvokedUrlCommand*)command
+- (void)shareConsent:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
-    NSString* echo = [command.arguments objectAtIndex:0];
 
-    if (echo != nil && [echo length] > 0) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
+    Didomi *didomi = [Didomi shared];
+    NSString jsDidomi = [didomi getJavaScriptForWebViewWithExtra:@""];
+
+    if (jsDidomi) {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:jsDidomi];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
     }

@@ -1,5 +1,5 @@
 var exec = require('cordova/exec');
 
-exports.coolMethod = function (arg0, success, error) {
-    exec(success, error, 'Didomi', 'coolMethod', [arg0]);
+exports.shareConsent = function (success, error) {
+    exec(success, error, 'Didomi', 'coolMethod', []);
 };
