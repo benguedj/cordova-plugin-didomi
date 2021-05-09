@@ -17,7 +17,7 @@
     CDVPluginResult* pluginResult = nil;
 
     Didomi *didomi = [Didomi shared];
-    NSString jsDidomi = [didomi getJavaScriptForWebViewWithExtra:@""];
+    NSString *jsDidomi = [didomi getJavaScriptForWebViewWithExtra:@""];
 
     if (jsDidomi) {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:jsDidomi];
