@@ -17,6 +17,9 @@
             <feature name="CDVDidomi">
                 <param name="android-package" value="bguedj.cordova.plugin.didomi.CDVDidomi" />
             </feature>
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
         <source-file src="src/android/CDVDidomi.java" target-dir="src/bguedj.cordova.plugin.didomi/Didomi" />
