@@ -1,6 +1,6 @@
 var exec = require('cordova/exec');
 
-exports.shareConsent = function (success, error) {
-    console.log("shareConsent : exec CDVDidomi - shareConsent");
-    exec(success, error, 'CDVDidomi', 'shareConsent', []);
+exports.injectConsent = function (success, error) {
+    console.log("injectConsent : exec CDVDidomi - injectConsent");
+    exec(success, error, 'CDVDidomi', 'injectConsent', []);
 };
