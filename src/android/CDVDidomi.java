@@ -1,4 +1,4 @@
-package cordova-plugin-didomi;
+package bguedj.cordova.plugin.didomi;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
