@@ -1,11 +1,15 @@
 package bguedj.cordova.plugin.didomi;
 
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.webkit.ValueCallback;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 
+import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,6 +21,9 @@ import io.didomi.sdk.exceptions.DidomiNotReadyException;
  * This class echoes a string called from JavaScript.
  */
 public class CDVDidomi extends CordovaPlugin {
+
+    private CordovaWebView cordovaWebView = this.webView;
+    private String jsToInject;
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -39,9 +46,21 @@ public class CDVDidomi extends CordovaPlugin {
       }
       if (jsDidomi != null && jsDidomi.length() > 0) {
         Log.v("jsDidomi : ", jsDidomi);
-        String jsToInject = jsCMP + " " + jsDidomi;
-        this.webView.getEngine().evaluateJavascript(jsToInject, null);
-        callbackContext.success("OK");
+        jsToInject = jsCMP + " " + jsDidomi;
+
+        // Get a handler that can be used to post to the main thread
+        Handler mainHandler = new Handler(Looper.getMainLooper());
+        Runnable myRunnable = new Runnable() {
+          @Override
+          public void run() {
+            webView.getEngine().evaluateJavascript(jsToInject, null);
+          }
+        };
+        Boolean isInTheQueue =  mainHandler.post(myRunnable);
+        if(isInTheQueue)
+          callbackContext.success("OK");
+        else
+          callbackContext.error("Error: The script has not been injected.");
       } else {
         callbackContext.error("Expected one non-empty string argument.");
       }
