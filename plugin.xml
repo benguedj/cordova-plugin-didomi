@@ -13,6 +13,7 @@
         <source-file src="src/ios/CDVDidomi.m" />
     </platform>
     <platform name="android">
+        <framework src="io.didomi.sdk:android:1.43.1" />
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="CDVDidomi">
                 <param name="android-package" value="bguedj.cordova.plugin.didomi.CDVDidomi" />
