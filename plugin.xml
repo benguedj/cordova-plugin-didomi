@@ -1,19 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-didomi" version="0.2.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-plugin-didomi" version="0.2.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>Didomi</name>
     <js-module name="Didomi" src="www/Didomi.js">
         <clobbers target="navigator.didomi" />
     </js-module>
     <platform name="ios">
-        <framework src="Didomi-XCFramework" type="podspec" spec="1.56.1" />
         <config-file parent="/*" target="config.xml">
             <feature name="CDVDidomi">
                 <param name="ios-package" value="CDVDidomi" />
             </feature>
         </config-file>
         <source-file src="src/ios/CDVDidomi.m" />
+        <framework src="src/ios/Didomi.framework" custom="true" />
     </platform>
     <platform name="android">
+        <framework src="io.didomi.sdk:android:1.43.1" />
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="CDVDidomi">
                 <param name="android-package" value="bguedj.cordova.plugin.didomi.CDVDidomi" />
@@ -24,8 +25,5 @@
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
         <source-file src="src/android/CDVDidomi.java" target-dir="src/bguedj.cordova.plugin.didomi/Didomi" />
-
-        <!-- SDK Didomi 1.56.1 -->
-        <framework src="src/ios/Didomi.framework" custom="true" />
     </platform>
 </plugin>
