@@ -5,6 +5,7 @@
         <clobbers target="navigator.didomi" />
     </js-module>
     <platform name="ios">
+        <framework src="Didomi-XCFramework" type="podspec" spec="1.56.1" />
         <config-file parent="/*" target="config.xml">
             <feature name="CDVDidomi">
                 <param name="ios-package" value="CDVDidomi" />
