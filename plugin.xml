@@ -11,7 +11,7 @@
             </feature>
         </config-file>
         <source-file src="src/ios/CDVDidomi.m" />
-        <framework src="src/ios/Didomi.framework" custom="true" />
+        <!-- <framework src="src/ios/Didomi.framework" custom="true" /> -->
     </platform>
     <platform name="android">
         <framework src="io.didomi.sdk:android:1.43.1" />
