@@ -11,7 +11,14 @@
             </feature>
         </config-file>
         <source-file src="src/ios/CDVDidomi.m" />
-        <framework src="src/ios/Didomi.framework" custom="true" />
+        <podspec>
+            <config>
+                <source url="https://cdn.cocoapods.org/"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="Didomi-XCFramework" spec="1.56.1"/>
+            </pods>
+        </podspec>
     </platform>
     <platform name="android">
         <framework src="io.didomi.sdk:android:1.43.1" />
