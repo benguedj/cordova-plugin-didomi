@@ -12,9 +12,6 @@
         </config-file>
         <source-file src="src/ios/CDVDidomi.m" />
         <podspec>
-            <config>
-                <source url="https://cdn.cocoapods.org/"/>
-            </config>
             <pods use-frameworks="true">
                 <pod name="Didomi-XCFramework" spec="1.56.1"/>
             </pods>
